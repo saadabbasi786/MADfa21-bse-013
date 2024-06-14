@@ -1,0 +1,33 @@
+State Management:
+
+prayerTimes: Stores the prayer times fetched from the API.
+fetchingLocation: Indicates whether the app is currently fetching the user's location.
+error: Stores any error messages.
+locationPermission: Indicates whether location permissions have been granted.
+Initial Effects:
+
+useEffect (on mount): Checks for stored location in AsyncStorage. If found, fetches prayer times using this location. Otherwise, requests location permission.
+useEffect (on locationPermission change): If permission is granted, fetches the user's current location.
+Functions:
+
+checkStoredLocation: Checks for stored location in AsyncStorage. If found, fetches prayer times. Otherwise, requests location permission.
+fetchPrayerTimes: Fetches prayer times from the Aladhan API using the given latitude and longitude.
+requestLocationPermission: Requests location permission on Android or iOS.
+checkAndRequestIOSPermission: Handles location permission requests on iOS.
+getLocation: Gets the user's current location using Geolocation and stores it in AsyncStorage. Fetches prayer times using this location.
+getCurrentPrayer: Determines the current or next prayer time based on the fetched prayer times.
+UI Rendering:
+
+Shows a loading indicator and a button to request location access while fetching location.
+Displays an error message if an error occurs.
+Displays the prayer times in a card format, highlighting the next upcoming prayer time.
+Styles:
+
+container: Main container style with padding and background color.
+centered: Style for centering elements (used for loading indicator and error message).
+card: Style for the prayer times card with padding, shadow, and rounded corners.
+date: Style for the date text.
+timeRow: Style for each prayer time row.
+label: Style for the prayer name label.
+time: Style for the prayer time text.
+highlight: Style for highlighting the next upcoming prayer time.
